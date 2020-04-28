@@ -1,0 +1,10 @@
+syntax = "proto2";
+
+package tutorial;
+
+message sens_dat {
+  required string  type = 1;
+  required string unit = 2;
+  required string timestamp = 3;
+  required float data = 4;
+}
