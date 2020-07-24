@@ -22,3 +22,11 @@ def insert_entry(structure):
 
 	mycursor.execute(com, val)
 	sensor_base.commit()
+
+
+def retrieve_entry():
+	mycursor = sensor_base.cursor()
+	latest = [0, 0, 0, 0, 0]
+	mycursor.execute("SELECT * FROM readings WHERE id = (SELECT MAX(id) FROM readings)")
+	latest = mycursor.fetchone()
+	return latest
